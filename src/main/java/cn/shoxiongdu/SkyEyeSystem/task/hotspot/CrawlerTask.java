@@ -8,8 +8,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Component
 @Slf4j
@@ -20,7 +18,7 @@ public class CrawlerTask {
 
     @Autowired private HotSpotMapper hotSpotMapper;
 
-    @Scheduled(fixedRate = 600000) // 每10分钟执行一次
+    @Scheduled(fixedRate = 3600000) // 每1小时执行一次
     public void crawl() {
         log.info("开始爬取热点数据");
         // 循环所有平台 用线程池执行爬取
