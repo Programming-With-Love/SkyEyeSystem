@@ -18,7 +18,7 @@ public class CrawlerTask {
 
     @Autowired private HotSpotMapper hotSpotMapper;
 
-    @Scheduled(fixedRate = 3600000) // 每1小时执行一次
+    @Scheduled(cron = "0 0 9-23/1 * * ?") // 每天9点到23点，每隔1小时执行一次
     public void crawl() {
         log.info("开始爬取热点数据");
         // 循环所有平台 用线程池执行爬取
