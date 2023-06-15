@@ -3,7 +3,7 @@
     <!-- %date 表示日期，%thread 表示线程名，%-5level 表示级别从左显示5个字符宽度，
     %logger{36} 表示 logger 名字最长36个字符，%msg 表示日志消息，%n 是换行符-->
     <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
-    <property name="FILE_PATH" value="logs/SkyEyeSystem%d{yyyy-MM-dd}.%i.log"/>
+    <property name="FILE_PATH" value="logs/%d{yyyy-MM-dd}.%i.log"/>
 
     <!-- 定义控制台输出-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
