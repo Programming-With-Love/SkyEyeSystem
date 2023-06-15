@@ -39,7 +39,6 @@ public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCra
         hotSpot.setKeyword(jsonObject.get("keyword").toString());
         hotSpot.setUrl(jsonObject.get("url").toString());
         hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotValue")) ? 0 : jsonObject.getInt("hotValue"));
-        hotSpot.setImage(platformMapper.selectById(getPlatformId()).getIconUrl());
         return hotSpot;
     }
 

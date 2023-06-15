@@ -2,11 +2,8 @@ package cn.shoxiongdu.SkyEyeSystem.entity.hot;
 
 import cn.shoxiongdu.SkyEyeSystem.entity.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.time.LocalDateTime;
 
 /**
  * 热点类
@@ -39,7 +36,7 @@ public class HotSpot extends BaseEntity {
     /**
      * 封面
      */
-    private String image = "";
+    private String image = "null";
 
     /**
      * 热度

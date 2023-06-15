@@ -39,7 +39,6 @@ public class CSDNCrawler extends AbstractCoderUtilCrawler implements HotDataCraw
         hotSpot.setKeyword(jsonObject.getStr("keyword"));
         hotSpot.setUrl(jsonObject.getStr("url"));
         hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotRankScore")) ? 0 : jsonObject.getInt("hotRankScore"));
-        hotSpot.setImage( platformMapper.selectById(getPlatformId()).getIconUrl() );
         return hotSpot;
     }
 
