@@ -20,6 +20,7 @@
         <hutools.version>5.8.16</hutools.version>
         <jedis.version>3.7.0</jedis.version>
         <saToken.version>1.34.0</saToken.version>
+        <ansjSeg.version>5.1.1</ansjSeg.version>
     </properties>
     <dependencies>
 
@@ -54,7 +55,12 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
-
+        <!--分词-->
+        <dependency>
+            <groupId>org.ansj</groupId>
+            <artifactId>ansj_seg</artifactId>
+            <version>${ansjSeg.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
