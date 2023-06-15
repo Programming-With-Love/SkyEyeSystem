@@ -2,6 +2,7 @@ package cn.shoxiongdu.SkyEyeSystem.entity.base;
 
 import cn.shoxiongdu.SkyEyeSystem.config.JsonSerializerConfig;
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
@@ -33,5 +34,6 @@ public class BaseEntity {
 
     @TableLogic
     @TableField
+    @JsonIgnore
     private Integer deleted = 0;
 }
