@@ -1,12 +1,11 @@
-package cn.shoxiongdu.SkyEyeSystem;
+package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl;
 
-import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.CrawlerTask;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class HotSpotTest {
+public class HotSpotCrawlerTest {
 
     @Autowired
     CrawlerTask crawlerTask;

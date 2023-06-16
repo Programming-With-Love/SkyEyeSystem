@@ -18,8 +18,8 @@ import java.util.Map;
 @Component
 public class WordCountRedis {
 
-    private static final String WORD_COUNT_KEY = "hotspot:statistics:wordCount:all";
-    private static final String WORD_COUNT_BY_PLATFORM_KEY = "hotspot:statistics:wordCount:platform";
+    public static final String WORD_COUNT_KEY = "hotspot:statistics:wordCount:all";
+    public static final String WORD_COUNT_BY_PLATFORM_KEY = "hotspot:statistics:wordCount:platform";
 
     private static final Jedis JEDIS = RedisDS.create().getJedis();
 
@@ -92,10 +92,10 @@ public class WordCountRedis {
         wordCount.forEach((k, v) -> {
 
             // 全平台统计
-            JEDIS.incrBy(WORD_COUNT_KEY + ":" + k, v);
+            JEDIS.hincrBy(WORD_COUNT_KEY, k, v);
 
             // 分平台统计
-            JEDIS.incrBy(WORD_COUNT_BY_PLATFORM_KEY + ":" + platform.getName() + ":" + k, v);
+            JEDIS.hincrBy(WORD_COUNT_BY_PLATFORM_KEY + ":" + platform.getName(), k, v);
         });
     }
 

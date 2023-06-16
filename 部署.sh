@@ -17,4 +17,4 @@ sudo fuser -k 8080/tcp
 nohup java -jar /root/SpringBootJar/$appName --spring.profiles.active=HWCloud > /dev/null 2>&1 &
 EOF
 
-echo "http://114.115.209.223/api/swagger-ui/index.html"
+echo "http://114.115.209.223:8080/api/swagger-ui/index.html"
