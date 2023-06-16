@@ -11,7 +11,7 @@ scp './target/'$appName root@114.115.209.223:'/root/SpringBootJar/'
 # 执行
 ssh root@114.115.209.223 << EOF
 # 停止当前运行在80端口的应用
-sudo fuser -k 80/tcp
+sudo fuser -k 8080/tcp
 
 # 后台启动上传的 JAR 文件
 nohup java -jar /root/SpringBootJar/$appName --spring.profiles.active=HWCloud > /dev/null 2>&1 &

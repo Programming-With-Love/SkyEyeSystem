@@ -2,10 +2,7 @@ package cn.shoxiongdu.SkyEyeSystem.mapper;
 
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
 import cn.shoxiongdu.SkyEyeSystem.entity.user.User;
-import cn.shoxiongdu.SkyEyeSystem.mapper.hot.HotSpotMapper;
-import cn.shoxiongdu.SkyEyeSystem.mapper.user.UserMapper;
-import cn.shoxiongdu.SkyEyeSystem.task.hotspot.impl.WeiboCrawler;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.impl.WeiboCrawler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

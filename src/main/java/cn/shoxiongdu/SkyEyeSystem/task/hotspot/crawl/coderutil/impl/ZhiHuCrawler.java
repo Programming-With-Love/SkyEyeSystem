@@ -1,25 +1,26 @@
-package cn.shoxiongdu.SkyEyeSystem.task.hotspot.impl;
+package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.impl;
 
 import cn.hutool.json.JSONObject;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
 import cn.shoxiongdu.SkyEyeSystem.mapper.hot.PlatformMapper;
-import cn.shoxiongdu.SkyEyeSystem.task.hotspot.AbstractCoderUtilCrawler;
-import cn.shoxiongdu.SkyEyeSystem.task.hotspot.HotDataCrawler;
+import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
+import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.AbstractCoderUtilCrawler;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Objects;
 
 @Component
 @AllArgsConstructor
-public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
+public class ZhiHuCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
     PlatformMapper platformMapper;
 
+    private static final String URL = "https://www.coderutil.com/api/resou/v1/zhihu";
+
     @Override
     public String getUrl() {
-        return "https://www.coderutil.com/api/resou/v1/weibo";
+        return URL;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCra
 
     @Override
     public Long getPlatformId() {
-        return 2L;
+        return 3L;
     }
 
     @Override
@@ -38,7 +39,6 @@ public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCra
         hotSpot.setRank(jsonObject.getInt("rank"));
         hotSpot.setKeyword(jsonObject.get("keyword").toString());
         hotSpot.setUrl(jsonObject.get("url").toString());
-        hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotValue")) ? 0 : jsonObject.getInt("hotValue"));
         return hotSpot;
     }
 

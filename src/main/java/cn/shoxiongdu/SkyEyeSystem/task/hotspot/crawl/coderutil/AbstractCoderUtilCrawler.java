@@ -1,4 +1,4 @@
-package cn.shoxiongdu.SkyEyeSystem.task.hotspot;
+package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
@@ -7,7 +7,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
 import cn.shoxiongdu.SkyEyeSystem.response.hotspot.CoderUtilBaseRes;
-
+import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
 
 import java.util.ArrayList;
 import java.util.List;

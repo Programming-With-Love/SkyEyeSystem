@@ -1,8 +1,7 @@
-package cn.shoxiongdu.SkyEyeSystem.task.hotspot;
+package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl;
 
 import cn.hutool.json.JSONObject;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
-import cn.shoxiongdu.SkyEyeSystem.entity.hot.Platform;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ spring:
     name: SkyEyeSystem
 #
 server:
-  port: 80
+  port: 8080
   servlet:
     context-path: /api
 cors:

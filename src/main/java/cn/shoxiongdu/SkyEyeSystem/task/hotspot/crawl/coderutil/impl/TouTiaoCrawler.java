@@ -1,10 +1,10 @@
-package cn.shoxiongdu.SkyEyeSystem.task.hotspot.impl;
+package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.impl;
 
 import cn.hutool.json.JSONObject;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
 import cn.shoxiongdu.SkyEyeSystem.mapper.hot.PlatformMapper;
-import cn.shoxiongdu.SkyEyeSystem.task.hotspot.AbstractCoderUtilCrawler;
-import cn.shoxiongdu.SkyEyeSystem.task.hotspot.HotDataCrawler;
+import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
+import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.AbstractCoderUtilCrawler;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,13 +13,13 @@ import java.util.Objects;
 
 @Component
 @AllArgsConstructor
-public class CSDNCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
+public class TouTiaoCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
     PlatformMapper platformMapper;
 
     @Override
     public String getUrl() {
-        return "https://www.coderutil.com/api/resou/v1/csdn";
+        return "https://www.coderutil.com/api/resou/v1/toutiao";
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CSDNCrawler extends AbstractCoderUtilCrawler implements HotDataCraw
 
     @Override
     public Long getPlatformId() {
-        return 5L;
+        return 6L;
     }
 
     @Override
@@ -38,7 +38,8 @@ public class CSDNCrawler extends AbstractCoderUtilCrawler implements HotDataCraw
         hotSpot.setRank(jsonObject.getInt("rank"));
         hotSpot.setKeyword(jsonObject.getStr("keyword"));
         hotSpot.setUrl(jsonObject.getStr("url"));
-        hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotRankScore")) ? 0 : jsonObject.getInt("hotRankScore"));
+        hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotValue")) ? 0 : jsonObject.getInt("hotValue"));
+        hotSpot.setImage( jsonObject.getStr("image") );
         return hotSpot;
     }
 
