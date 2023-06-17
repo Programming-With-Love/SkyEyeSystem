@@ -4,12 +4,14 @@ import cn.shoxiongdu.SkyEyeSystem.entity.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * 热点类
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class HotSpot extends BaseEntity {
 
     /**

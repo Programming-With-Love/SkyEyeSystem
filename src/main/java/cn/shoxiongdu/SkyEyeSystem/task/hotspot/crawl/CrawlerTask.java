@@ -35,10 +35,13 @@ public class CrawlerTask {
 
             // 爬取数据
             List<HotSpot> hotSpots = crawler.crawlHotSpotData();
+            log.info("爬取数据: " + hotSpots.size() + "条");
 
             // 处理数据
             hotSpots.forEach(hotSpot -> {
                 hotSpot.setPlatformId(platformId);
+
+                log.info("插入数据: " + hotSpot);
 
                 // 删除旧数据
                 hotSpotMapper.deleteByKeyword(hotSpot.getKeyword());
