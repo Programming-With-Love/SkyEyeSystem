@@ -1,6 +1,7 @@
 package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl;
 
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
+import cn.shoxiongdu.SkyEyeSystem.entity.hot.Platform;
 import cn.shoxiongdu.SkyEyeSystem.mapper.hot.HotSpotMapper;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.statistics.WordCountRedis;
 import lombok.extern.slf4j.Slf4j;
@@ -24,24 +25,23 @@ public class CrawlerTask {
     @Autowired
     private WordCountRedis wordCountRedis;
 
-    @Scheduled(cron = "0 0 9-23/1 * * ?") // 每天9点到23点，每隔1小时执行一次
+    @Scheduled(cron = "0 0 15 * * ?") // 每天下午3点执行
     public void crawl() {
-        log.info("开始爬取热点数据");
-        // 循环所有平台 用线程池执行爬取
+        log.info("开始爬取热点数据 ");
+        // 循环所有平台
         platformCrawlerList.forEach(crawler -> {
-            log.info("开始平台 -> " + crawler.getPlatformId());
 
-            Long platformId = crawler.getPlatformId();
+            Platform platform = crawler.getPlatform();
 
             // 爬取数据
             List<HotSpot> hotSpots = crawler.crawlHotSpotData();
-            log.info("爬取数据: " + hotSpots.size() + "条");
+            log.info(platform.getName() + " -> 热点数据: " + hotSpots.size() + "条");
 
             // 处理数据
             hotSpots.forEach(hotSpot -> {
-                hotSpot.setPlatformId(platformId);
 
-                log.info("插入数据: " + hotSpot);
+                // 设置平台id
+                hotSpot.setPlatformId(platform.getId());
 
                 // 删除旧数据
                 hotSpotMapper.deleteByKeyword(hotSpot.getKeyword());
@@ -52,10 +52,6 @@ public class CrawlerTask {
                 // 词频统计
                 wordCountRedis.wordFrequency(hotSpot.getKeyword(), hotSpot.getPlatformId());
             });
-
-            // 分词统计
-
-            log.info("结束平台 -> " + crawler.getPlatformId());
         });
         log.info("爬取热点数据完成");
 

@@ -2,6 +2,7 @@ package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl;
 
 import cn.hutool.json.JSONObject;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
+import cn.shoxiongdu.SkyEyeSystem.entity.hot.Platform;
 
 import java.util.List;
 
@@ -17,15 +18,17 @@ public interface HotDataCrawler {
     List<HotSpot> crawlHotSpotData();
 
     /**
-     * 获取当前平台id
-     * @return
-     */
-    public Long getPlatformId();
-
-    /**
      * json对象转HotSpot
      * @param jsonObject
      * @return
      */
     HotSpot parseHotSpot(JSONObject jsonObject);
+
+    /**
+     * 获取当前平台
+     *
+     * @return
+     */
+    public Platform getPlatform();
+
 }

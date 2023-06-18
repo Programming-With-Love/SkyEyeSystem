@@ -2,6 +2,7 @@ package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.impl;
 
 import cn.hutool.json.JSONObject;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
+import cn.shoxiongdu.SkyEyeSystem.entity.hot.Platform;
 import cn.shoxiongdu.SkyEyeSystem.mapper.hot.PlatformMapper;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.AbstractCoderUtilCrawler;
@@ -28,11 +29,6 @@ public class BaiduCrawler extends AbstractCoderUtilCrawler implements HotDataCra
     }
 
     @Override
-    public Long getPlatformId() {
-        return 4L;
-    }
-
-    @Override
     public HotSpot parseHotSpot(JSONObject jsonObject) {
         HotSpot hotSpot = new HotSpot();
         hotSpot.setRank(jsonObject.getInt("rank"));
@@ -41,6 +37,11 @@ public class BaiduCrawler extends AbstractCoderUtilCrawler implements HotDataCra
         hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotValue")) ? 0 : jsonObject.getInt("hotValue"));
         hotSpot.setImage(jsonObject.getStr("image"));
         return hotSpot;
+    }
+
+    @Override
+    public Platform getPlatform() {
+        return platformMapper.selectById(4L);
     }
 
 }

@@ -2,6 +2,7 @@ package cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.impl;
 
 import cn.hutool.json.JSONObject;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
+import cn.shoxiongdu.SkyEyeSystem.entity.hot.Platform;
 import cn.shoxiongdu.SkyEyeSystem.mapper.hot.PlatformMapper;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.AbstractCoderUtilCrawler;
@@ -27,9 +28,10 @@ public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCra
         return getCoderUtilData();
     }
 
+
     @Override
-    public Long getPlatformId() {
-        return 2L;
+    public Platform getPlatform() {
+        return platformMapper.selectById(2L);
     }
 
     @Override
