@@ -67,10 +67,10 @@ execute [HotSpotCrawlerTest.java](src/test/java/cn/shoxiongdu/SkyEyeSystem/task/
 
 #### 2. Configure the execution time of the crawler
 
-Modify the annotation value in [crawl task] (
-src/main/java/cn/shoxiongdu/SkyEyeSystem/task/hotspot/crawl/CrawlerTask.java).
+Modify the annotation value
+in [crawl task](src/main/java/cn/shoxiongdu/SkyEyeSystem/task/hotspot/crawl/CrawlerTask.java)
 Receives standard CRON parameters. It can be generated online
-using [Cron Online Expression Builder] (http://cron.ciding.cc/).
+using [Cron Online Expression Builder](http://cron.ciding.cc/).
 
 ```java
 @Scheduled(cron = "0 0 15 * * ?") // Performed daily at 3 pm
