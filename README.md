@@ -63,7 +63,7 @@ Make sure your installer is Maven
 
 #### 1. Perform crawler operations manually
 
-執行[HotSpotCrawlerTest.java](src/test/java/cn/shoxiongdu/SkyEyeSystem/task/hotspot/crawl/BiliBiliCrawlerTest.java)
+execute [HotSpotCrawlerTest.java](src/test/java/cn/shoxiongdu/SkyEyeSystem/task/hotspot/crawl/BiliBiliCrawlerTest.java)
 
 #### 2. Configure the execution time of the crawler
 
