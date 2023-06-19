@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
@@ -51,7 +52,7 @@ public class BiliBiliCrawler implements HotDataCrawler {
                     HotSpot hotSpot = new HotSpot();
                     hotSpot.setRank(jsonObj.getInt("position"));
                     hotSpot.setKeyword(jsonObj.getStr("keyword"));
-                    hotSpot.setImage(jsonObj.getStr("icon"));
+                    hotSpot.setImage(Objects.isNull(jsonObj.getStr("icon")) ? "null" : jsonObj.getStr("icon"));
                     hotSpot.setHotValue(jsonObj.getInt("hot_id"));
                     hotSpot.setUrl(SEARCH_URL_PREFIX + hotSpot.getKeyword());
                     return hotSpot;
