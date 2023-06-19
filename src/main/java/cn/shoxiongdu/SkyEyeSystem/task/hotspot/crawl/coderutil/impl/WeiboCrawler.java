@@ -16,6 +16,8 @@ import java.util.Objects;
 @AllArgsConstructor
 public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
+    public static final Long PLATFORM_ID = 2L;
+
     PlatformMapper platformMapper;
 
     @Override
@@ -31,7 +33,7 @@ public class WeiboCrawler extends AbstractCoderUtilCrawler implements HotDataCra
 
     @Override
     public Platform getPlatform() {
-        return platformMapper.selectById(2L);
+        return platformMapper.selectById(PLATFORM_ID);
     }
 
     @Override

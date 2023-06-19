@@ -19,10 +19,13 @@ public interface HotDataCrawler {
 
     /**
      * json对象转HotSpot
+     *
      * @param jsonObject
      * @return
      */
-    HotSpot parseHotSpot(JSONObject jsonObject);
+    default HotSpot parseHotSpot(JSONObject jsonObject) {
+        return new HotSpot();
+    }
 
     /**
      * 获取当前平台

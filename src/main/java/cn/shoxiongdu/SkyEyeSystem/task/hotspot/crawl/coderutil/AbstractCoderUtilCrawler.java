@@ -8,10 +8,13 @@ import cn.hutool.json.JSONUtil;
 import cn.shoxiongdu.SkyEyeSystem.entity.hot.HotSpot;
 import cn.shoxiongdu.SkyEyeSystem.response.hotspot.CoderUtilBaseRes;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+@Slf4j
 public abstract class AbstractCoderUtilCrawler implements HotDataCrawler {
 
     private static final String ACCESS_KEY = "06d855455c89c1d8f0aa14482394cc68";
@@ -36,7 +39,8 @@ public abstract class AbstractCoderUtilCrawler implements HotDataCrawler {
         HttpResponse response = request.execute();
 
         if (response.getStatus() != 200) {
-            return null;
+            log.error(getPlatform().getName() + " req error: " + JSONUtil.toJsonStr(response));
+            return Collections.emptyList();
         }
 
         // 处理响应

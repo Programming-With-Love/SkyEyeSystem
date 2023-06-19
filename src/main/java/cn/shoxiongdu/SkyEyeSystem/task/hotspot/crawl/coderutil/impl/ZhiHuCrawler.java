@@ -15,6 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 public class ZhiHuCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
+    public static final Long PLATFORM_ID = 3L;
+
+
     PlatformMapper platformMapper;
 
     private static final String URL = "https://www.coderutil.com/api/resou/v1/zhihu";
@@ -32,7 +35,7 @@ public class ZhiHuCrawler extends AbstractCoderUtilCrawler implements HotDataCra
 
     @Override
     public Platform getPlatform() {
-        return platformMapper.selectById(3L);
+        return platformMapper.selectById(PLATFORM_ID);
     }
 
     @Override

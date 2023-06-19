@@ -16,6 +16,9 @@ import java.util.Objects;
 @AllArgsConstructor
 public class TouTiaoCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
+    public static final Long PLATFORM_ID = 6L;
+
+
     PlatformMapper platformMapper;
 
     @Override
@@ -31,7 +34,7 @@ public class TouTiaoCrawler extends AbstractCoderUtilCrawler implements HotDataC
 
     @Override
     public Platform getPlatform() {
-        return platformMapper.selectById(6L);
+        return platformMapper.selectById(PLATFORM_ID);
     }
 
     @Override

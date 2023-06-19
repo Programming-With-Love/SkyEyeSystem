@@ -16,6 +16,8 @@ import java.util.Objects;
 @AllArgsConstructor
 public class BaiduCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
+    public static final Long PLATFORM_ID = 4L;
+
     PlatformMapper platformMapper;
 
     @Override
@@ -36,12 +38,13 @@ public class BaiduCrawler extends AbstractCoderUtilCrawler implements HotDataCra
         hotSpot.setUrl(jsonObject.getStr("url"));
         hotSpot.setHotValue( Objects.isNull(jsonObject.getInt("hotValue")) ? 0 : jsonObject.getInt("hotValue"));
         hotSpot.setImage(jsonObject.getStr("image"));
+
         return hotSpot;
     }
 
     @Override
     public Platform getPlatform() {
-        return platformMapper.selectById(4L);
+        return platformMapper.selectById(PLATFORM_ID);
     }
 
 }
