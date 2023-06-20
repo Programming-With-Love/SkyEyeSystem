@@ -25,7 +25,7 @@ public class CrawlerTask {
     @Autowired
     private WordCountRedis wordCountRedis;
 
-    @Scheduled(cron = "0 0 15 * * ?") // 每天下午3点执行
+    @Scheduled(cron = "*/10 9-23 * * *") // 每天的 9 点到 23 点之间，每隔十分钟执行一次任务。
     public void crawl() {
         log.info("开始爬取热点数据 ");
         // 循环所有平台
