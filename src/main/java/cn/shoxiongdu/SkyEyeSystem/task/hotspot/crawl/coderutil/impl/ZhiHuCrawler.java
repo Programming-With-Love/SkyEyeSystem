@@ -7,11 +7,10 @@ import cn.shoxiongdu.SkyEyeSystem.mapper.hot.PlatformMapper;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.HotDataCrawler;
 import cn.shoxiongdu.SkyEyeSystem.task.hotspot.crawl.coderutil.AbstractCoderUtilCrawler;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+//@Component
 @AllArgsConstructor
 public class ZhiHuCrawler extends AbstractCoderUtilCrawler implements HotDataCrawler {
 
